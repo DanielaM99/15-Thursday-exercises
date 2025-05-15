@@ -101,8 +101,10 @@ def reserva_vuelo():
     while True:
         print("\n-----MENÚ DE RESERVAS-----")
         print("1. Ver vuelos disponibles y reservar un asiento")
-        print("2. Volver al menú principal")
+        print("2. Generar reporte de vuelos ordenados por horario")
+        print("3. Salir del menú de reservas")
         opcion = input("Seleccione una opción: ").strip()
+        
 
         if opcion == "1":
             print("\n-----RESERVA-----")
@@ -129,13 +131,15 @@ def reserva_vuelo():
             else:
                 print("La reservación no fue exitosa, por favor verifica la información ingresada")
         elif opcion == "2":
-            print("Volviendo al menú principal...")
-            break
+            generar_reporte_vuelos()
+        elif opcion == "3":
+            print("Saliendo del menú")
+            break  
         else:
-            print("Opción no válida. Por favor, seleccione 1 o 2.")
+            print("Invalido, por favor seleccione 1, 2 o 3")
 
 
-def generar_reporte_vuelos(nombre_archivo="reporte_vuelos.txt"):
+def generar_reporte_vuelos(nombre_archivo="reporte.txt"):
     vuelos_ordenados = sorted(vuelos.items(), key=lambda item: item[1]["horarios"])
 
     with open(nombre_archivo, "w") as archivo:
@@ -155,8 +159,4 @@ def generar_reporte_vuelos(nombre_archivo="reporte_vuelos.txt"):
 
 
 if __name__ == "__main__":
-    print("--- Sistema de Gestión de Vuelos ---")
-    reserva_vuelo()  # Iniciar el menú de reservas
-
-    # Generar el reporte de vuelos al finalizar las reservas (o en otro momento si lo prefieres)
-    generar_reporte_vuelos()
+    reserva_vuelo()  
