@@ -7,31 +7,36 @@ vuelos = {
         "origen":"Lima",
         "destino":"Bogota",
         "asientos": ["A1","A2","A3","B1","B2","C3","C5","D1"],
-        "horarios": (15,30)
+        "horarios": (15,30),
+        "reserva": []
     },
     "AV-103":{
         "origen":"Bogota",
         "destino":"Toronto",
         "asientos": ["A4","A6","B3","B5","C2"],
-        "horarios": (12,00)
+        "horarios": (12,00),
+        "reserva": []
     },
     "AV-140":{
         "origen":"São Paulo",
         "destino":"Bogota",
         "asientos": ["A1","A4","B7","B8","B9"],
-        "horarios": (23,00)
+        "horarios": (23,00),
+        "reserva": []
     },
     "AV-203":{
         "origen":"Medellín",
         "destino":"Cartagena",
         "asientos": ["A1","A5","B3","C1","C9"],
-        "horarios": (18,00)
+        "horarios": (18,00),
+        "reserva": []
     },
     "AV-350":{
         "origen":"Bogota",
         "destino":"Barcelona",
         "asientos": ["A4","A5","B3","C8","C9"],
-        "horarios": (12,10)
+        "horarios": (12,10),
+        "reserva": []
     }
 
 }
@@ -52,6 +57,14 @@ def formato_asiento_valido(asiento):
 
 def verificar_disponibilidad(vuelo, asiento):
     return asiento in vuelo["asientos"]
+
+def reservar_asiento(codigo_vuelo, asiento):
+    if codigo_vuelo not in vuelos:
+        print(f"El código de vuelo {codigo_vuelo} no existe.")
+        return False
+
+vuelo = vuelos[codigo_vuelo_valido]
+
 
 
 def validacion_reserva(vuelo, asiento):
@@ -80,4 +93,3 @@ def calcular_puestos_ocupados(vuelo):
         porcentaje = (reservados / total_asientos) * 100
         return f"{porcentaje:.2f}%"
     return "0%"
-
