@@ -18,14 +18,14 @@ vuelos = {
         "reserva": []
     },
     "AV-140": {
-        "origen": "São Paulo",
+        "origen": "Sao Paulo",
         "destino": "Bogota",
         "asientos": ["A1", "A4", "B7", "B8", "B9"],
         "horarios": (23, 00),
         "reserva": []
     },
     "AV-203": {
-        "origen": "Medellín",
+        "origen": "Medellin",
         "destino": "Cartagena",
         "asientos": ["A1", "A5", "B3", "C1", "C9"],
         "horarios": (18, 00),
@@ -99,11 +99,11 @@ def calcular_porcentaje_ocupacion(codigo_vuelo):
 
 def reserva_vuelo():
     while True:
-        print("\n-----MENÚ DE RESERVAS-----")
+        print("\n-----MENU DE RESERVAS-----")
         print("1. Ver vuelos disponibles y reservar un asiento")
         print("2. Generar reporte de vuelos ordenados por horario")
-        print("3. Salir del menú de reservas")
-        opcion = input("Seleccione una opción: ").strip()
+        print("3. Salir del menu de reservas")
+        opcion = input("Seleccione una opcion: ").strip()
         
 
         if opcion == "1":
